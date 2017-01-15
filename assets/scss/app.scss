@@ -1,0 +1,83 @@
+/*
+  Gallery width.
+  Unit can be 'px' or '%'.
+--------------------- */
+  $width: 600px;
+
+/*
+  Gallery width.
+  Should be true or false.
+--------------------- */
+$responsive: false;
+
+/*
+  Number of thumbnails to generate grid rules for.
+  You'll still need to create the respective HTML elements in your layout.
+--------------------- */
+$items: 12;
+
+/*
+  How many thumbnails should appear per row.
+  Set to 'false' to display all thumbnails in a single row.
+--------------------- */
+$row-length: 4;
+
+/*
+  Set the spacing to display between each thumbnail.
+  Set to 'false' to disable thumbnail spacing.
+--------------------- */
+$spacing: null;
+
+/*
+  Set custom thumbnail aspect ratio (% of width).
+  Set to 'null' for default ratio (0.5).
+--------------------- */
+$aspect-ratio: null;
+
+/*
+  Image directory.
+  Relative to the 'css' directory.
+--------------------- */
+$image-dir: '../img/' !default;
+
+/*
+  Image map.
+  Key names must follow the structure 'image-XX'(where XX is the number of the image)
+  --------------------- */
+$image: (
+  image-1:  '#{$image-dir}0a_b9g-rm6w-austin-neill.jpg',
+  image-2:  '#{$image-dir}0vwoxfsbbny-adi-chrisworo.jpg',
+  image-3:  '#{$image-dir}1k5qq4yqm0g-mark-basarab.jpg',
+  image-4:  '#{$image-dir}6u-ssfbv-gm-ishan-seefromthesky.jpg',
+  image-5:  '#{$image-dir}6x90rjdo-wa-kristopher-allison.jpg',
+  image-6:  '#{$image-dir}8utyhv3xbr4-federico-beccari.jpg',
+  image-7:  '#{$image-dir}9_wqa2r9bme-julie-macey.jpg',
+  image-8:  '#{$image-dir}9wg5jcepbsw-rohit-tandon.jpg',
+  image-9:  '#{$image-dir}a3owknpciq8-alexandre-chambon.jpg',
+  image-10: '#{$image-dir}ae1mxn92smy-evan-kirby.jpg',
+  image-11: '#{$image-dir}ano5_ie9dcu-nitish-meena.jpg',
+  image-12: '#{$image-dir}bjbxvz-uyc-jordan-mcqueen.jpg',
+  image-13: '#{$image-dir}duietczn7o4-cristina-gottardi.jpg',
+  image-14: '#{$image-dir}e4944k_4svi-buzz-andersen.jpg',
+  image-15: '#{$image-dir}fkfa6wsdtmi-nathan-anderson.jpg',
+  image-16: '#{$image-dir}fwxculyojdo-maxime-staudenmann.jpg',
+  image-17: '#{$image-dir}gsh-rscnlkq-yang-song.jpg',
+  image-18: '#{$image-dir}hpchlfknc2s-cole-patrick.jpg',
+  image-19: '#{$image-dir}jgoerugd_y4-john-towner.jpg',
+  image-20: '#{$image-dir}kfhz9xh3ppu-james-donovan.jpg',
+  image-21: '#{$image-dir}maxheaaauki-vincent-guth.jpg',
+  image-22: '#{$image-dir}mbwsum8dtga-ales-krivec.jpg',
+  image-23: '#{$image-dir}nduplkyrxqu-elena-prokofyeva.jpg',
+  image-24: '#{$image-dir}o_uv3khquo8-elle-zhu.jpg',
+  image-25: '#{$image-dir}p3ozjut_dks-kace-rodriguez.jpg',
+  image-26: '#{$image-dir}paykyb-8er8-ian-schneider.jpg',
+  image-27: '#{$image-dir}qkedbiowt8e-kortni-williams.jpg',
+  image-28: '#{$image-dir}ra6vbivis2y-thomas-tixtaaz.jpg',
+  image-29: '#{$image-dir}ti_odb7zu6m-sveta-fedarava.jpg',
+  image-30: '#{$image-dir}uoi3lg8fgl4-sam-ferrara.jpg',
+  image-31: '#{$image-dir}yndeotbwckw-karsten-wurth.jpg',
+  image-32: '#{$image-dir}yzbrsfzxnow-jan-erik-waider.jpg'
+);
+
+@import 'core';
+@import 'preview';

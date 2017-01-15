@@ -1,0 +1,293 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Slider"><meta name="author" content="Alex Ford"><link rel="icon" href="favicon.ico"><title>Slider</title><style>/*
+  Gallery width.
+  Unit can be 'px' or '%'.
+--------------------- */
+/*
+  Gallery width.
+  Should be true or false.
+--------------------- */
+/*
+  Number of thumbnails to generate grid rules for.
+  You'll still need to create the respective HTML elements in your layout.
+--------------------- */
+/*
+  How many thumbnails should appear per row.
+  Set to 'false' to display all thumbnails in a single row.
+--------------------- */
+/*
+  Set the spacing to display between each thumbnail.
+  Set to 'false' to disable thumbnail spacing.
+--------------------- */
+/*
+  Set custom thumbnail aspect ratio (% of width).
+  Set to 'null' for default ratio (0.5).
+--------------------- */
+/*
+  Image directory.
+  Relative to the 'css' directory.
+--------------------- */
+/*
+  Image map.
+  Key names must follow the structure 'image-XX'(where XX is the number of the image)
+  --------------------- */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+.gallery {
+  position: relative;
+  width: 600px;
+  margin: 0 auto;
+  overflow: hidden;
+  width: 600px;
+  height: 722px;
+}
+.gallery input[type="radio"] {
+  position: absolute;
+  visibility: hidden;
+}
+.gallery__featured {
+  width: inherit;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  -moz-transition: background 0.2s;
+  -o-transition: background 0.2s;
+  -webkit-transition: background 0.2s;
+  transition: background 0.2s;
+}
+.gallery__thumb {
+  position: relative;
+  top: 400px;
+  float: left;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.25;
+  -moz-transition: background 0.2s;
+  -o-transition: background 0.2s;
+  -webkit-transition: background 0.2s;
+  transition: background 0.2s;
+}
+.gallery__thumb:first-of-type:nth-last-of-type(1), .gallery__thumb:first-of-type:nth-last-of-type(1) ~ .gallery__thumb {
+  width: 24.0625%;
+  height: 99px;
+  margin-top: 7px;
+  margin-right: 1.25%;
+}
+.gallery__thumb:first-of-type:nth-last-of-type(1):nth-of-type(4n+0), .gallery__thumb:first-of-type:nth-last-of-type(1) ~ .gallery__thumb:nth-of-type(4n+0) {
+  margin-right: 0 !important;
+}
+.gallery__thumb:first-of-type:nth-last-of-type(1):nth-of-type(4n+1), .gallery__thumb:first-of-type:nth-last-of-type(1) ~ .gallery__thumb:nth-of-type(4n+1) {
+  clear: both;
+}
+.gallery__thumb:nth-of-type(1), input:checked + .gallery__thumb:nth-of-type(1) ~ .gallery__featured {
+  background-image: url("../assets/img/0a_b9g-rm6w-austin-neill.jpg");
+}
+.gallery__thumb:first-of-type:nth-last-of-type(2), .gallery__thumb:first-of-type:nth-last-of-type(2) ~ .gallery__thumb {
+  width: 24.0625%;
+  height: 99px;
+  margin-top: 7px;
+  margin-right: 1.25%;
+}
+.gallery__thumb:first-of-type:nth-last-of-type(2):nth-of-type(4n+0), .gallery__thumb:first-of-type:nth-last-of-type(2) ~ .gallery__thumb:nth-of-type(4n+0) {
+  margin-right: 0 !important;
+}
+.gallery__thumb:first-of-type:nth-last-of-type(2):nth-of-type(4n+1), .gallery__thumb:first-of-type:nth-last-of-type(2) ~ .gallery__thumb:nth-of-type(4n+1) {
+  clear: both;
+}
+.gallery__thumb:nth-of-type(2), input:checked + .gallery__thumb:nth-of-type(2) ~ .gallery__featured {
+  background-image: url("../assets/img/0vwoxfsbbny-adi-chrisworo.jpg");
+}
+.gallery__thumb:first-of-type:nth-last-of-type(3), .gallery__thumb:first-of-type:nth-last-of-type(3) ~ .gallery__thumb {
+  width: 24.0625%;
+  height: 99px;
+  margin-top: 7px;
+  margin-right: 1.25%;
+}
+.gallery__thumb:first-of-type:nth-last-of-type(3):nth-of-type(4n+0), .gallery__thumb:first-of-type:nth-last-of-type(3) ~ .gallery__thumb:nth-of-type(4n+0) {
+  margin-right: 0 !important;
+}
+.gallery__thumb:first-of-type:nth-last-of-type(3):nth-of-type(4n+1), .gallery__thumb:first-of-type:nth-last-of-type(3) ~ .gallery__thumb:nth-of-type(4n+1) {
+  clear: both;
+}
+.gallery__thumb:nth-of-type(3), input:checked + .gallery__thumb:nth-of-type(3) ~ .gallery__featured {
+  background-image: url("../assets/img/1k5qq4yqm0g-mark-basarab.jpg");
+}
+.gallery__thumb:first-of-type:nth-last-of-type(4), .gallery__thumb:first-of-type:nth-last-of-type(4) ~ .gallery__thumb {
+  width: 24.0625%;
+  height: 99px;
+  margin-top: 7px;
+  margin-right: 1.25%;
+}
+.gallery__thumb:first-of-type:nth-last-of-type(4):nth-of-type(4n+0), .gallery__thumb:first-of-type:nth-last-of-type(4) ~ .gallery__thumb:nth-of-type(4n+0) {
+  margin-right: 0 !important;
+}
+.gallery__thumb:first-of-type:nth-last-of-type(4):nth-of-type(4n+1), .gallery__thumb:first-of-type:nth-last-of-type(4) ~ .gallery__thumb:nth-of-type(4n+1) {
+  clear: both;
+}
+.gallery__thumb:nth-of-type(4), input:checked + .gallery__thumb:nth-of-type(4) ~ .gallery__featured {
+  background-image: url("../assets/img/6u-ssfbv-gm-ishan-seefromthesky.jpg");
+}
+.gallery__thumb:first-of-type:nth-last-of-type(5), .gallery__thumb:first-of-type:nth-last-of-type(5) ~ .gallery__thumb {
+  width: 24.0625%;
+  height: 99px;
+  margin-top: 7px;
+  margin-right: 1.25%;
+}
+.gallery__thumb:first-of-type:nth-last-of-type(5):nth-of-type(4n+0), .gallery__thumb:first-of-type:nth-last-of-type(5) ~ .gallery__thumb:nth-of-type(4n+0) {
+  margin-right: 0 !important;
+}
+.gallery__thumb:first-of-type:nth-last-of-type(5):nth-of-type(4n+1), .gallery__thumb:first-of-type:nth-last-of-type(5) ~ .gallery__thumb:nth-of-type(4n+1) {
+  clear: both;
+}
+.gallery__thumb:nth-of-type(5), input:checked + .gallery__thumb:nth-of-type(5) ~ .gallery__featured {
+  background-image: url("../assets/img/6x90rjdo-wa-kristopher-allison.jpg");
+}
+.gallery__thumb:first-of-type:nth-last-of-type(6), .gallery__thumb:first-of-type:nth-last-of-type(6) ~ .gallery__thumb {
+  width: 24.0625%;
+  height: 99px;
+  margin-top: 7px;
+  margin-right: 1.25%;
+}
+.gallery__thumb:first-of-type:nth-last-of-type(6):nth-of-type(4n+0), .gallery__thumb:first-of-type:nth-last-of-type(6) ~ .gallery__thumb:nth-of-type(4n+0) {
+  margin-right: 0 !important;
+}
+.gallery__thumb:first-of-type:nth-last-of-type(6):nth-of-type(4n+1), .gallery__thumb:first-of-type:nth-last-of-type(6) ~ .gallery__thumb:nth-of-type(4n+1) {
+  clear: both;
+}
+.gallery__thumb:nth-of-type(6), input:checked + .gallery__thumb:nth-of-type(6) ~ .gallery__featured {
+  background-image: url("../assets/img/8utyhv3xbr4-federico-beccari.jpg");
+}
+.gallery__thumb:first-of-type:nth-last-of-type(7), .gallery__thumb:first-of-type:nth-last-of-type(7) ~ .gallery__thumb {
+  width: 24.0625%;
+  height: 99px;
+  margin-top: 7px;
+  margin-right: 1.25%;
+}
+.gallery__thumb:first-of-type:nth-last-of-type(7):nth-of-type(4n+0), .gallery__thumb:first-of-type:nth-last-of-type(7) ~ .gallery__thumb:nth-of-type(4n+0) {
+  margin-right: 0 !important;
+}
+.gallery__thumb:first-of-type:nth-last-of-type(7):nth-of-type(4n+1), .gallery__thumb:first-of-type:nth-last-of-type(7) ~ .gallery__thumb:nth-of-type(4n+1) {
+  clear: both;
+}
+.gallery__thumb:nth-of-type(7), input:checked + .gallery__thumb:nth-of-type(7) ~ .gallery__featured {
+  background-image: url("../assets/img/9_wqa2r9bme-julie-macey.jpg");
+}
+.gallery__thumb:first-of-type:nth-last-of-type(8), .gallery__thumb:first-of-type:nth-last-of-type(8) ~ .gallery__thumb {
+  width: 24.0625%;
+  height: 99px;
+  margin-top: 7px;
+  margin-right: 1.25%;
+}
+.gallery__thumb:first-of-type:nth-last-of-type(8):nth-of-type(4n+0), .gallery__thumb:first-of-type:nth-last-of-type(8) ~ .gallery__thumb:nth-of-type(4n+0) {
+  margin-right: 0 !important;
+}
+.gallery__thumb:first-of-type:nth-last-of-type(8):nth-of-type(4n+1), .gallery__thumb:first-of-type:nth-last-of-type(8) ~ .gallery__thumb:nth-of-type(4n+1) {
+  clear: both;
+}
+.gallery__thumb:nth-of-type(8), input:checked + .gallery__thumb:nth-of-type(8) ~ .gallery__featured {
+  background-image: url("../assets/img/9wg5jcepbsw-rohit-tandon.jpg");
+}
+.gallery__thumb:first-of-type:nth-last-of-type(9), .gallery__thumb:first-of-type:nth-last-of-type(9) ~ .gallery__thumb {
+  width: 24.0625%;
+  height: 99px;
+  margin-top: 7px;
+  margin-right: 1.25%;
+}
+.gallery__thumb:first-of-type:nth-last-of-type(9):nth-of-type(4n+0), .gallery__thumb:first-of-type:nth-last-of-type(9) ~ .gallery__thumb:nth-of-type(4n+0) {
+  margin-right: 0 !important;
+}
+.gallery__thumb:first-of-type:nth-last-of-type(9):nth-of-type(4n+1), .gallery__thumb:first-of-type:nth-last-of-type(9) ~ .gallery__thumb:nth-of-type(4n+1) {
+  clear: both;
+}
+.gallery__thumb:nth-of-type(9), input:checked + .gallery__thumb:nth-of-type(9) ~ .gallery__featured {
+  background-image: url("../assets/img/a3owknpciq8-alexandre-chambon.jpg");
+}
+.gallery__thumb:first-of-type:nth-last-of-type(10), .gallery__thumb:first-of-type:nth-last-of-type(10) ~ .gallery__thumb {
+  width: 24.0625%;
+  height: 99px;
+  margin-top: 7px;
+  margin-right: 1.25%;
+}
+.gallery__thumb:first-of-type:nth-last-of-type(10):nth-of-type(4n+0), .gallery__thumb:first-of-type:nth-last-of-type(10) ~ .gallery__thumb:nth-of-type(4n+0) {
+  margin-right: 0 !important;
+}
+.gallery__thumb:first-of-type:nth-last-of-type(10):nth-of-type(4n+1), .gallery__thumb:first-of-type:nth-last-of-type(10) ~ .gallery__thumb:nth-of-type(4n+1) {
+  clear: both;
+}
+.gallery__thumb:nth-of-type(10), input:checked + .gallery__thumb:nth-of-type(10) ~ .gallery__featured {
+  background-image: url("../assets/img/ae1mxn92smy-evan-kirby.jpg");
+}
+.gallery__thumb:first-of-type:nth-last-of-type(11), .gallery__thumb:first-of-type:nth-last-of-type(11) ~ .gallery__thumb {
+  width: 24.0625%;
+  height: 99px;
+  margin-top: 7px;
+  margin-right: 1.25%;
+}
+.gallery__thumb:first-of-type:nth-last-of-type(11):nth-of-type(4n+0), .gallery__thumb:first-of-type:nth-last-of-type(11) ~ .gallery__thumb:nth-of-type(4n+0) {
+  margin-right: 0 !important;
+}
+.gallery__thumb:first-of-type:nth-last-of-type(11):nth-of-type(4n+1), .gallery__thumb:first-of-type:nth-last-of-type(11) ~ .gallery__thumb:nth-of-type(4n+1) {
+  clear: both;
+}
+.gallery__thumb:nth-of-type(11), input:checked + .gallery__thumb:nth-of-type(11) ~ .gallery__featured {
+  background-image: url("../assets/img/ano5_ie9dcu-nitish-meena.jpg");
+}
+.gallery__thumb:first-of-type:nth-last-of-type(12), .gallery__thumb:first-of-type:nth-last-of-type(12) ~ .gallery__thumb {
+  width: 24.0625%;
+  height: 99px;
+  margin-top: 7px;
+  margin-right: 1.25%;
+}
+.gallery__thumb:first-of-type:nth-last-of-type(12):nth-of-type(4n+0), .gallery__thumb:first-of-type:nth-last-of-type(12) ~ .gallery__thumb:nth-of-type(4n+0) {
+  margin-right: 0 !important;
+}
+.gallery__thumb:first-of-type:nth-last-of-type(12):nth-of-type(4n+1), .gallery__thumb:first-of-type:nth-last-of-type(12) ~ .gallery__thumb:nth-of-type(4n+1) {
+  clear: both;
+}
+.gallery__thumb:nth-of-type(12), input:checked + .gallery__thumb:nth-of-type(12) ~ .gallery__featured {
+  background-image: url("../assets/img/bjbxvz-uyc-jordan-mcqueen.jpg");
+}
+input:checked + .gallery__thumb {
+  opacity: 1;
+}
+
+body {
+  background: #2C3E50;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHJhZGlhbEdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwcHgiIGN5PSI1MHB4IiByPSI4MDAlIj48c3RvcCBvZmZzZXQ9IjIuNSUiIHN0b3AtY29sb3I9IiM1OTdlYTIiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyYzNlNTAiLz48L3JhZGlhbEdyYWRpZW50PjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+  background-size: 100%;
+  background-image: -moz-radial-gradient(50px 50px, #597ea2 20px, #2c3e50 800px);
+  background-image: -webkit-radial-gradient(50px 50px, #597ea2 20px, #2c3e50 800px);
+  background-image: radial-gradient(50px 50px, #597ea2 20px, #2c3e50 800px);
+}
+
+.gallery {
+  position: relative;
+  top: 50%;
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.gallery__thumb {
+  -moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  -moz-transition: opacity 0.1s ease-out, margin 0.1s ease-out, box-shadow 0.1s ease-out;
+  -o-transition: opacity 0.1s ease-out, margin 0.1s ease-out, box-shadow 0.1s ease-out;
+  -webkit-transition: opacity 0.1s ease-out, margin 0.1s ease-out, box-shadow 0.1s ease-out;
+  transition: opacity 0.1s ease-out, margin 0.1s ease-out, box-shadow 0.1s ease-out;
+}
+.gallery__thumb:hover {
+  opacity: 0.6;
+}</style></head><body><section class="gallery"><input id="1" type="radio" name="thumb" checked="checked"><label for="1" class="gallery__thumb"></label><input id="2" type="radio" name="thumb"><label for="2" class="gallery__thumb"></label><input id="3" type="radio" name="thumb"><label for="3" class="gallery__thumb"></label><input id="4" type="radio" name="thumb"><label for="4" class="gallery__thumb"></label><input id="5" type="radio" name="thumb"><label for="5" class="gallery__thumb"></label><input id="6" type="radio" name="thumb"><label for="6" class="gallery__thumb"></label><input id="7" type="radio" name="thumb"><label for="7" class="gallery__thumb"></label><input id="8" type="radio" name="thumb"><label for="8" class="gallery__thumb"></label><input id="9" type="radio" name="thumb"><label for="9" class="gallery__thumb"></label><input id="10" type="radio" name="thumb"><label for="10" class="gallery__thumb"></label><input id="11" type="radio" name="thumb"><label for="11" class="gallery__thumb"></label><input id="12" type="radio" name="thumb"><label for="12" class="gallery__thumb"></label><div class="gallery__featured"></div></section></body></html>

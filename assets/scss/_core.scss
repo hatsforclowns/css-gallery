@@ -1,0 +1,189 @@
+// Gallery defaults
+$width: 600px !default;
+$responsive: false !default;
+$spacing: .05 !default;
+$aspect-ratio: 0.66667 !default;
+
+// Set variables
+$r: $responsive;
+$i: $items;
+$s: $spacing;
+$a: $aspect-ratio;
+$l: $row-length;
+$w: $width;
+
+// Media breakpoints for responsive mode
+$media: (
+  mobile-sm:  320px,
+  mobile-md:  375px,
+  mobile-lg:  425px,
+  tablet:     768px,
+  desktop-sm: 1024px,
+  desktop-md: 1440px,
+  desktop-lg: 2560px,
+);
+
+// Import Compass
+@import 'compass/css3';
+
+// Image function
+@function image($key) {
+  @if map-has-key($image, $key) {
+    @return map-get($image, $key);
+  } @else {
+    @error "'#{$key}' doesn't appear to be a valid image.";
+  }
+}
+
+// Media function
+@function media($key) {
+  @if map-has-key($media, $key) {
+    @return map-get($media, $key);
+  } @else {
+    @error "'#{$key}' doesn't appear to be a valid breakpoint.";
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  @extend html;
+  margin: 0;
+}
+
+.gallery {
+  position: relative;
+  width: $w;
+  margin: 0 auto;
+  overflow: hidden;
+
+  @if $r {
+    width: 100%;
+    padding: 0 3vh;
+  } @else {
+    width: $w;
+  }
+
+  @if $l and $s {
+    height: floor(($w * $a) + ((($w - $s) * $a / $l) + (($w * $a) * ($s * 1.5) / $l)) * ($i / $l));
+  } @else if $l {
+    height: floor(($w * $a) + ($w * $a / $l * ($i / $l)));
+  } @else if $s {
+    height: floor(($w * $a) + ((($w - $s) * $a / $i) + (($w * $a) * ($s * 1.5) / $i)));
+  } @else {
+    height: floor(($w * $a) + ($w * $a / $i));
+  }
+
+  // Hide radio buttons
+  input[type="radio"] {
+    position: absolute;
+    visibility: hidden;
+  }
+
+  // Featured image
+  &__featured {
+    width: inherit;
+    height: floor($w * $a);
+    background-size: cover;
+    background-position: center;
+    @include transition(background 0.2s);
+
+    @if $r {
+      @each $media, $m in $media {
+        $i: index($media, $m);
+        @media (max-width: #{$m}) {
+          height: floor($w * $a);
+        }
+      }
+    }
+
+  }
+
+  // Thumbnail image(s)
+  &__thumb {
+    position: relative;
+    top: floor($w * $a);
+    float: left;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.25;
+    @include transition(background 0.2s);
+
+    @if $r {
+      @each $media, $m in $media {
+        $i: index($media, $m);
+        @media (max-width: #{$m}) {
+          top: floor($w * $a);
+        }
+      }
+    }
+
+    // Generate column rules
+    @for $n from 1 through $i {
+      @if $l and $s {
+        &:first-of-type:nth-last-of-type(#{$n}),
+        &:first-of-type:nth-last-of-type(#{$n}) ~ & {
+          width: percentage(1 - $s + ($s / $l)) / $l;
+          height: floor(($w - $s) * $a / $l);
+          margin-top: floor(($w * $a) * ($s * 1.5) / $l);
+          margin-right: percentage($s / $l);
+
+          &:nth-of-type(#{$l}n+0) {
+            margin-right: 0 !important;
+          }
+
+          &:nth-of-type(#{$l}n+1) {
+            clear: both;
+          }
+        }
+      } @else if $l {
+        &:first-of-type:nth-last-of-type(#{$n}),
+        &:first-of-type:nth-last-of-type(#{$n}) ~ & {
+          width: percentage(1) / $l;
+          height: floor(($w / $l) * $a);
+        }
+
+        &:nth-of-type(#{$l}n+1) {
+          clear: both;
+        }
+      } @else if $s {
+        &:first-of-type:nth-last-of-type(#{$n}),
+        &:first-of-type:nth-last-of-type(#{$n}) ~ & {
+          width: percentage(1 - $s + ($s / $n)) / $n;
+          height: floor(($w - $s) * $a / $n);
+          margin-top: floor(($w * $a) * ($s * 1.5) / $i);
+          margin-right: percentage($s) / $n;
+        }
+
+        &:last-of-type {
+          margin-right: 0 !important;
+        }
+      } @else {
+        &:first-of-type:nth-last-of-type(#{$n}),
+        &:first-of-type:nth-last-of-type(#{$n}) ~ & {
+          width: percentage(1) / $n;
+          height: $w / $items * $a;
+        }
+      }
+
+      // Loop image map over individual thumbnails and featured image
+      &:nth-of-type(#{$n}),
+      input:checked+&:nth-of-type(#{$n})~.gallery__featured {
+        background-image: url(image('image-#{$n}'))
+      }
+    }
+
+    // Highlight selected thumbnail
+    input:checked + & {
+      opacity: 1;
+    }
+  }
+}

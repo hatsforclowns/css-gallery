@@ -1,0 +1,23 @@
+{
+  "name": "gallery",
+  "version": "0.9.1",
+  "description": "A pure HTML5/CSS3 image gallery with thumbnail support.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hatsforclowns/gallery.git"
+  },
+  "license": "MIT",
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "npm install && gulp"
+  },
+  "author": "Alex Ford <helloalexford@gmail.com>",
+  "devDependencies": {
+    "browser-sync": "^2.18.5",
+    "gulp": "^3.9.1",
+    "gulp-compass": "^2.1.0",
+    "gulp-replace": "^0.5.4",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-clean-css": "^2.3.2"
+  }
+}

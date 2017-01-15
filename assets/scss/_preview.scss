@@ -1,0 +1,21 @@
+$background: #2C3E50;
+
+body {
+  background: $background;
+  @include background-image(radial-gradient(50px 50px, lighten($background, 25%) 20px, $background 800px));
+}
+
+.gallery {
+  position: relative;
+  top: 50%;
+  @include transform(translateY(-50%));
+
+  &__thumb {
+    @include box-shadow(0px 1px 2px rgba(0,0,0,0.1));
+    @include transition(opacity 0.1s ease-out, margin 0.1s ease-out, box-shadow 0.1s ease-out);
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}
